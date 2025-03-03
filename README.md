@@ -298,9 +298,9 @@ Shadowrocket内置了一个配置文件`default.conf`，其中包含了国内外
 * 测试规则
 
 配置文件的纯文本编写方法，请参考：
-* [懒人配置](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy.conf)
+* [配置](https://raw.githubusercontent.com/QDwbd/srlue/main/s.conf)
 
-* [懒人配置（含策略组）](https://raw.githubusercontent.com/wlxuf/Shadowrocket/main/lazy_group.conf)
+* [配置（私人）](https://raw.githubusercontent.com/QDwbd/srlue/main/my.conf)
 ### 扩展配置
 * 从配置a扩展出配置b，此时默认关系是b包含a，也可以理解为b继承了a的内容。
 
