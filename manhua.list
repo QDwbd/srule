@@ -1,0 +1,7 @@
+DOMAIN-SUFFIX,pubadx.one,REJECT
+DOMAIN-SUFFIX,runative-syndicate.com,REJECT
+DOMAIN-SUFFIX,pubfuture-ad.com,REJECT
+DOMAIN-SUFFIX,spacemancreativedom.net,REJECT
+DOMAIN-SUFFIX,tenserrelents.com,REJECT
+DOMAIN-SUFFIX,cdn.pubfuture-ad.com,REJECT
+DOMAIN-KEYWORD,18comic,PROXY
