@@ -422,7 +422,7 @@ Shadowrocket快速使用方法：
 > 使用纯文本模式对配置文件的可设置项进行调整。[部分设置或命令](#通用参数) 不提供 UI 编辑界面，仅在纯文本模式下可以设置
 > 
 > 配置文件的纯文本编写方法可以参考：
-> > * [懒人配置](https://raw.githubusercontent.com/QDwbd/srule/main/r.conf)<br>
+> > * [AiMi配置](https://raw.githubusercontent.com/QDwbd/srule/main/s.conf)<br>
 > > * [懒人配置（含策略组）](https://raw.githubusercontent.com/QDwbd/srule/main/rg.conf)
 
 ### [编译配置](#使用目录)
