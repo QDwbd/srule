@@ -1,0 +1,271 @@
+ipv6: false
+socks_port: 3090
+allow_external_connections: false
+vif_only: false
+geoip_db_url: https://github.com/xream/geoip/releases/latest/download/ipinfo.country.mmdb
+asn_db_url: https://github.com/P3TERX/GeoLite.mmdb/raw/download/GeoLite2-ASN.mmdb
+proxy_latency_test_url: http://www.gstatic.com/generate_204
+compat_route: true
+dns:
+  upstreams:
+    Global DNS:
+    - quic://223.5.5.5:853
+    - quic://223.6.6.6:853
+    - https://doh.pub/dns-query
+    - https://223.5.5.5/dns-query
+    - https://223.6.6.6/dns-query
+    - https://dns.google/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://dns.cloudflare.com/dns-query
+  forward:
+  - wildcard:
+      match: '*'
+      value: Global DNS
+policy_groups:
+- external:
+    name: PROXY
+    type: select
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko21.png
+    hidden: false
+- select:
+    name: Telegram
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko1.png
+    hidden: false
+- select:
+    name: AI
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko32.png
+    hidden: false
+- select:
+    name: YouTube
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko31.png
+    hidden: false
+- select:
+    name: Netflix
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko30.png
+    hidden: false
+- select:
+    name: Disney
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko29.png
+    hidden: false
+- select:
+    name: HBO
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko28.png
+    hidden: false
+- select:
+    name: TikTok
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko2.png
+    hidden: false
+- select:
+    name: Spotify
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko3.png
+    hidden: false
+- select:
+    name: PayPal
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko4.png
+    hidden: false
+- select:
+    name: Twitter
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko7.png
+    hidden: false
+- select:
+    name: Facebook
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko6.png
+    hidden: false
+- select:
+    name: Amazon
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko9.png
+    hidden: false
+- select:
+    name: 谷歌服务
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko11.png
+    hidden: false
+- select:
+    name: 游戏平台
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko16.png
+    hidden: false
+- select:
+    name: 微软服务
+    policies:
+    - PROXY
+    flatten: true
+    icon: https://raw.githubusercontent.com/LovedGM/Quantumult-X-TuBiao/main/Nezuko/Nezuko18.png
+    hidden: false
+rules:
+- rule_set:
+    match: https://raw.githubusercontent.com/QDwbd/srule/refs/heads/main/ai.list
+    policy: AI
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMax/ChinaMax.list
+    policy: DIRECT
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/ChinaMax/ChinaMax_Domain.list
+    policy: DIRECT
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple.list
+    policy: DIRECT
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Apple/Apple_Domain.list
+    policy: DIRECT
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/AppleID/AppleID.list
+    policy: DIRECT
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Telegram/Telegram.list
+    policy: Telegram
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/YouTube/YouTube.list
+    policy: YouTube
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Netflix/Netflix.list
+    policy: Netflix
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Disney/Disney.list
+    policy: Disney
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/HBO/HBO.list
+    policy: HBO
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/TikTok/TikTok.list
+    policy: TikTok
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Spotify/Spotify.list
+    policy: Spotify
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/PayPal/PayPal.list
+    policy: PayPal
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Twitter/Twitter.list
+    policy: Twitter
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Facebook/Facebook.list
+    policy: Facebook
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Amazon/Amazon.list
+    policy: Amazon
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Google/Google.list
+    policy: 谷歌服务
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Sony/Sony.list
+    policy: 游戏平台
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Nintendo/Nintendo.list
+    policy: 游戏平台
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Epic/Epic.list
+    policy: 游戏平台
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Game/Game.list
+    policy: 游戏平台
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Microsoft/Microsoft.list
+    policy: 微软服务
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/SteamCN/SteamCN.list
+    policy: DIRECT
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Steam/Steam.list
+    policy: PROXY
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/GitHub/GitHub.list
+    policy: PROXY
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Global/Global.list
+    policy: PROXY
+- rule_set:
+    match: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Shadowrocket/Lan/Lan.list
+    policy: DIRECT
+- ip_cidr:
+    match: 192.168.0.0/16
+    policy: DIRECT
+- ip_cidr:
+    match: 10.0.0.0/8
+    policy: DIRECT
+- ip_cidr:
+    match: 127.0.0.0/8
+    policy: DIRECT
+- ip_cidr:
+    match: 172.16.0.0/12
+    policy: DIRECT
+- ip_cidr:
+    match: 192.128.0.0/16
+    policy: DIRECT
+- ip_cidr:
+    match: 224.0.0.0/24
+    policy: DIRECT
+- geoip:
+    match: CN
+    policy: DIRECT
+    no_resolve: false
+    disabled: false
+- default:
+    policy: PROXY
+url_rewrites:
+- match: (.*google)\.cn
+  location: $1.com
+  status_code: 302
+scriptings:
+- generic:
+    name: 解锁检测
+    script_url: https://raw.githubusercontent.com/QDwbd/srule/main/egern/jiesuo.js
+mitm:
+  ca_p12: egern.p12
+  ca_passphrase: egern
+widgets:
+- name: 解锁检测
+  script_name: 解锁检测
+modules:
+- url: https://raw.githubusercontent.com/158212892/QuantumultXMark/refs/heads/main/My/Egern/modules/pluginhub.yaml
+  enabled: true
+- url: https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/refs/heads/main/modules/script-hub.beta.surge.sgmodule
+  enabled: true
+- url: https://whatshub.top/sgmodule/ip-api.sgmodule
+  enabled: true
+- url: https://raw.githubusercontent.com/QDwbd/srule/main/egern/tc.sgmodule
+  enabled: true
+- url: https://raw.githubusercontent.com/getsomecat/GetSomeCats/Surge/modules/Panel/Net_Speed/Net_Speed.sgmodule
+  enabled: true
+- url: https://raw.githubusercontent.com/QingRex/LoonKissSurge/refs/heads/main/Surge/Official/%E2%AD%90%EF%B8%8F%20Sub-Store.official.sgmodule
+  enabled: true
