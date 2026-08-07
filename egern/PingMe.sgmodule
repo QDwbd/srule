@@ -1,0 +1,75 @@
+name: PingMe&WeTalk
+description: PingMe&WeTalk每日签到
+compat_arguments:
+  arg1: 'true'
+  arg2: 'true'
+  arg3: 'true'
+  arg4: 'true'
+  arg5: 0 */2 * * *
+  arg6: 0 */2 * * *
+  PROXY: PROXY
+compat_arguments_schema:
+  arg1:
+    name: PingMe任务
+    default_value: 'true'
+    options:
+    - 'true'
+    - 'false'
+  arg2:
+    name: WeTalk任务
+    default_value: 'true'
+    options:
+    - 'true'
+    - 'false'
+  arg3:
+    name: PM'token
+    default_value: 'true'
+    options:
+    - 'true'
+    - 'false'
+  arg4:
+    name: WT'token
+    default_value: 'true'
+    options:
+    - 'true'
+    - 'false'
+  arg5:
+    name: PM定时
+    default_value: 0 */2 * * *
+  arg6:
+    name: WT定时
+    default_value: 0 */2 * * *
+  PROXY:
+    name: PROXY
+    default_value: PROXY
+dns: {}
+rules:
+- domain:
+    match: api.pingmeapp.net
+    policy: PROXY
+scriptings:
+- schedule:
+    name: PingMe签到任务
+    cron: 0 */2 * * *
+    script_url: https://raw.githubusercontent.com/QDwbd/srule/main/egern/pingme.js
+    timeout: 600
+- schedule:
+    name: WeTalk签到任务
+    cron: 0 */2 * * *
+    script_url: https://raw.githubusercontent.com/QDwbd/srule/main/egern/wetalk.js
+    timeout: 600
+- http_request:
+    name: PingMe (token）
+    match: ^https:\/\/api\.pingmeapp\.net\/app\/queryBalanceAndBonus
+    script_url: https://raw.githubusercontent.com/QDwbd/srule/main/egern/pingme.js
+    timeout: 300
+- http_request:
+    name: WeTalk（token）
+    match: ^https:\/\/api\.wetalkapp\.com\/app\/queryBalanceAndBonus
+    script_url: https://raw.githubusercontent.com/QDwbd/srule/main/egern/wetalk.js
+    timeout: 300
+mitm:
+  hostnames:
+    includes:
+    - api.pingmeapp.net
+    - api.wetalkapp.com
